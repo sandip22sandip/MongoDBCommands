@@ -1,0 +1,87 @@
+## MongoDB Commands for Databases:- 
+- Display available Databases:-
+show dbs
+
+- Create New or Switch to DB:-
+use DBName
+
+- Check the current DB:-
+db
+
+- Drop DB:-
+db.dropDatabse()
+
+## MongoDB Commands for Collections:-
+- Get all the collections of DB:-
+show collections
+
+- Create collection:-
+db.createCollection('comments')
+
+- Drop Collection:-
+db.comments.drop()
+
+## MongoDB Commands for Rows:-
+- Get all the Rows:-
+db.comments.find()
+
+- Show all the Rows pretty:-
+db.comments.find().pretty()
+
+- Show only few Rows:-
+db.comments.find().pretty().limit(2)
+
+- Show count of Rows:-
+db.comments.find().count()
+
+- Insert One Row:-
+db.comments.insert({
+    "name": "Sandip",
+    "lang": "eng"
+})
+
+- Insert Many Rows:-
+db.comments.insertMany([
+    {
+        "name": "Sandip",
+        "lang": "eng"
+    },
+    {
+        "name": "Sandip1",
+        "lang": "eng1",
+        "date": new Date()
+    }
+])
+
+- Find in a Collection:-
+db.comments.find({"name": "Sandip"})
+
+- Find the 1st Matching:-
+db.comments.findOne({"name": "Sandip"})
+
+- Find in a Collection & print count:-
+db.comments.find({"name": "Sandip"}).count()
+
+- Update row:-
+db.comments.update({name: "Sandip"},
+    {
+        "name": "Sandip2",
+        "lang": "eng1",
+        "date": new Date()
+    }
+)
+
+- Update row & insert new if not found:-
+db.comments.update({name: "Sandip"},
+    {
+        "name": "Sandip2",
+        "lang": "eng1",
+        "date": new Date()
+    },{upsert: true}
+)
+
+- Delete rows:-
+db.comments.remove({name: "sandip"})
+
+- Find Rows <, <=, >, >=
+db.comments.find({member_cnt: {$lt: 90}})
