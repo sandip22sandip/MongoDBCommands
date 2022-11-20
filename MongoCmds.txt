@@ -1,4 +1,3 @@
-Test Merge:-
 ## MongoDB Commands for Databases:- 
 - Display available Databases:-
 show dbs
